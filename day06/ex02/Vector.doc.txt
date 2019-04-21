@@ -1,0 +1,10 @@
+<- Vector ----------------------------------------------------------------------
+The Vector class handles x|y|z axis w homogeneous coordinates.
+
+The dest Vertex is required
+
+Instance can be contructed from Vertex instance
+Like this: new Vector( array("dest" => new Vertex("x" => 11, "y" => 22, "z" => 33)))
+
+Default value of Vertex instanse: (0, 0, 0, 1);
+---------------------------------------------------------------------- Vector ->

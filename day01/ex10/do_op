@@ -1,0 +1,51 @@
+#!/usr/bin/php
+<?php
+    function ft_split($str)
+    {
+        $str = array_filter(explode(' ', $str));
+        return ($str);
+    }
+    if ($argc != 4)
+    {
+        echo "Incorrect Parameters";
+        exit();
+    }
+    $zna = trim($argv[2]);
+    $one = trim($argv[1]);
+    $two = trim($argv[3]);
+    if ($zna == "*")
+        $res = $one * $two;
+    else if ($zna == "/")
+    {
+        if ($two == "0" && $one != "0")
+        {
+            echo "Infinity";
+            exit(0);
+        }
+        else if ($two == "0" && $one == "0")
+        {
+            echo "NaN";
+            exit (0);
+        }
+        $res = $one / $two;
+    }
+    else if ($zna == "+")
+        $res = $one + $two;
+    else if ($zna == "-")
+        $res = $one - $two;
+    else if ($zna == "%")
+    {
+        if ($two == "0" && $one != "0")
+        {
+            echo "Infinity";
+            exit(0);
+        }
+        else if ($two == "0" && $one == "0")
+        {
+            echo "NaN";
+            exit (0);
+        }
+        $res = $one % $two;
+    }
+    echo ($res);
+?>

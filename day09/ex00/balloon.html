@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>It's Peanut Butter Jelly Time</title>
+	<style>
+		#balloon
+		{
+			width: 200px;
+			height: 200px;
+			background: red;
+			border-radius: 50%;
+			margin-top: 20%;
+			margin-left: 40%;
+		}
+		html
+		{
+			height: 100%;
+			background: linear-gradient(45deg,#c6ffdd, #fbd786,#f7797d);
+		}
+	</style>
+</head>
+<body>
+	<div id="balloon" onmouseover="occurs()" onclick="clicke()" onmouseout="shadow()"></div>
+	<script type="text/javascript">
+		var color = {0: "#ff0000",1: "#00ff00",2: "#0000ff"};
+		var color_num = 0;
+		var size = 200;
+		document.getElementById("balloon").style.width = 200 +'px';
+		document.getElementById("balloon").style.height = 200 +'px';
+		function clicke(event_press)
+		{
+			size += 10;
+			if (size > 420)
+				size = 200;
+			if (color_num > 2)
+				color_num = 0;
+			document.getElementById("balloon").style.width = size + 'px';
+			document.getElementById("balloon").style.height = size + 'px';
+			document.getElementById("balloon").style.background = color[color_num];
+			document.getElementById("balloon").style.boxShadow = "0px 0px 50px " + color[color_num];
+			color_num++;
+			return;
+		}
+
+		function occurs(event)
+		{
+			document.getElementById("balloon").style.boxShadow = "0px 0px 50px " + color[color_num];
+			size -= 5;
+			if (size < 200)
+				size = 200;
+			if (color_num < 0)
+				color_num = 2;
+			document.getElementById("balloon").style.width = size + 'px';
+			document.getElementById("balloon").style.height = size + 'px';
+			document.getElementById("balloon").style.background = color[color_num];
+			color_num--;
+			return;
+		}
+		function shadow(ke)
+		{
+			document.getElementById("balloon").style.boxShadow = "0px 0px 0px " + color[color_num];
+		}
+	</script>
+</body>
+</html>

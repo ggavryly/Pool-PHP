@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEreK</title>
+    <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    	html
+    	{
+    		height: 100%;
+    		background: linear-gradient(45deg,#c6ffdd, #fbd786,#f7797d);
+    	}
+        div.balloon {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            border-radius: 50%;
+            margin-top: 20%;
+            margin-left: 40%;
+        }
+    </style>
+    <script>
+        var color = {0: '#ff0000', 1: '#00ff00', 2: '#0000ff'};
+        var colorIn = 0;
+        var balloon;
+        var size = 200;
+        $(document).ready(function(){
+            balloon = $('#balloon');
+            balloon.click(Click);
+            balloon.mouseleave(Mouse);
+        })
+        function Mouse(){
+            size -= 5;
+            if (size < 200) {
+                size = 200;
+            }
+            colorIn--;
+            if (colorIn < 0) {
+                colorIn = 2;
+            }
+            Refresh(colorIn);
+        }
+        function Click() {
+            size += 10;
+            if (size > 420) {
+                size = 200;
+            }
+            colorIn++;
+            if (colorIn > 2) {
+                colorIn = 0;
+            }
+            Refresh(colorIn);
+        }
+        function Refresh(colorIn){
+            balloon.css('height', size);
+            balloon.css('width', size);
+            balloon.css('backgroundColor', color[colorIn]);
+        }
+    </script>
+</head>
+<body>
+    <div class="balloon" id="balloon">
+
+    </div>
+</body>
+</html>

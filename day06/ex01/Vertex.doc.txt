@@ -1,0 +1,11 @@
+<- Vertex ----------------------------------------------------------------------
+The Vertex class handles x|y|z axis w homogeneous coordinates.
+
+The x|y|z coordinates are necessarily
+
+Color and w cordinates are optionals; Default their values equally for w '1.00' 
+And for Color white; 
+
+Instance can be contructed from X, Y, Z value:
+Like this: new Vertex ( array ('x' => 11, 'y' => 22, 'z' => 33) );
+---------------------------------------------------------------------- Vertex ->

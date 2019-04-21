@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CALCULATOR BOGA</title>
+	<style type="text/css">
+		#calculator
+		{
+			margin-left: 35%;
+			margin-top: 20%;
+		}
+		#result
+		{
+			margin-left: 127px;
+			margin-top: 20px;
+		}
+		html
+		{
+			height: 100%;
+			background: linear-gradient(45deg,#c6ffdd, #fbd786,#f7797d);
+		}
+	</style>
+</head>
+<body>
+	<div id="calculator">
+		<input id='1' type="" name="value_1" value="">
+		<select id='operator'>
+			<option id='+'>+</option>
+			<option id='-'>-</option>
+			<option id='*'>*</option>
+			<option id='/'>/</option>
+			<option id='%'>%</option>
+		</select>
+		<input id='2' type="" name="value_2" value="">
+		<br>
+		<input id="result" type="submit" name="try-me" value="Try me!" onclick="calculate()">
+		<script type="text/javascript">
+			window.onload =	setInterval("alert('Please, use me...')", 30000);
+			function calculate()
+			{
+				var value_1 = document.getElementById("1").value;
+				var sign = document.getElementById("operator").value;
+				var value_2 = document.getElementById("2").value;
+				if (value_1 < 0 || value_2 < 0)
+				{
+					alert("Error :(");
+					return;
+				}
+				if (value_2 === "0" && sign == "/" || sign == "%")
+				{
+					alert("It's over 9000!");
+					console.log("It's over 9000!");
+					return;
+				}
+				if (sign == '+')
+				{
+					var x = Number(value_1) + Number(value_2);
+					result(x);
+				}
+				else if (sign == '-')
+				{
+					var x = Number(value_1) - Number(value_2);
+					result(x);
+				}
+				else if (sign == '*')
+				{
+					var x = Number(value_1) * Number(value_2);
+					result(x);
+				}
+				else if (sign == '/')
+				{
+					var x = Number(value_1) / Number(value_2);
+					result(x);
+				}
+				else if (sign == '%')
+				{
+					var x = Number(value_1) % Number(value_2);
+					result(x);
+				}
+				function result(res)
+				{
+					alert(res);
+					console.log(res);
+					return;
+				}
+			}
+		</script>
+	</div>
+</body>
+</html>

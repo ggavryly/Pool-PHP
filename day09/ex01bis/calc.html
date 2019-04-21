@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Makaka</title>
+    <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+    html
+    {
+    	height: 100%;
+    	background: linear-gradient(45deg,#c6ffdd, #fbd786,#f7797d);
+    }
+    </style>
+    <script>
+        var calc;
+        var left;
+        var right;
+        var op;
+        $(document).ready(function(){
+            calc = $('#calc');
+            left = $('#left');
+            right = $('#right');
+            op = $('#op');
+            calc.submit(submit);
+            setInterval("alert('Please, use me...')", 30000);
+        });
+        function numIsValid(l, r) {
+            return l == parseInt(l, 10) && l >= 0 && r == parseInt(r, 10) && r >= 0;
+        }
+        function submit(event) {
+            event.preventDefault();
+            var l = Number(left.val());
+            var r = Number(right.val());
+            if (!numIsValid(left.val(), right.val())) {
+                alert("Error :(");
+                return false;
+            }
+            switch (op.val()) {
+                case ('a'):
+                    result(l + r);
+                    break;
+                case ('m'):
+                    result(l * r);
+                    break;
+                case ('d'):
+                    if (r === 0) {
+                        result("It’s over 9000!");
+                    } else {
+                        result(l / r);
+                    }
+                    break;
+                case ('mo'):
+                    if (r === 0) {
+                        result("It’s over 9000!");
+                    } else {
+                        result(l / r);
+                    }
+                    break;
+                case ('mi'):
+                    result(l - r);
+                    break;
+                default:
+                    result("operation not found");
+                    break;
+            }
+        }
+        function result(res) {
+            console.log(res);
+            alert(res);
+        }
+    </script>
+</head>
+<body>
+    <div class="page">
+        <div class="calc">
+            <div class="circle"></div>
+            <form action="" id="calc">
+                <input type="text" id="left">
+                <select id="op">
+                    <option value="a">+</option>
+                    <option value="mi">-</option>
+                    <option value="m">*</option>
+                    <option value="d">/</option>
+                    <option value="mo">%</option>
+                </select>
+                <input type="text" id="right">
+                <input type="submit" id="submit" value="Try me!">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
